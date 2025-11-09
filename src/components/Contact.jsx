@@ -1,12 +1,11 @@
+import { openingHours, socials } from "../../constants/index.js";
 import { useGSAP } from "@gsap/react";
-import { openingHours } from "../../constants";
 import { SplitText } from "gsap/all";
+import gsap from "gsap";
 
 const Contact = () => {
   useGSAP(() => {
-    const titleSplit = SplitText.create("#contact h2", {
-      type: "words",
-    });
+    const titleSplit = SplitText.create("#contact h2", { type: "words" });
 
     const timeline = gsap.timeline({
       scrollTrigger: {
@@ -22,7 +21,7 @@ const Contact = () => {
         yPercent: 100,
         stagger: 0.02,
       })
-      .form("#contact h3, #contact p", {
+      .from("#contact h3, #contact p", {
         opacity: 0,
         yPercent: 100,
         stagger: 0.02,
@@ -61,26 +60,27 @@ const Contact = () => {
 
         <div>
           <h3>Visit Our Bar</h3>
-          <p>456, Req Blvd. #404, Los Angeles, CA 90210</p>
+          <p>456, Raq Blvd. #404, Los Angeles, CA 90210</p>
         </div>
 
         <div>
           <h3>Contact Us</h3>
-          <p>(555) 987-9543</p>
-          <p>test@gmail.com</p>
+          <p>(555) 987-6543</p>
+          <p>hello@jsmcocktail.com</p>
         </div>
 
         <div>
           <h3>Open Every Day</h3>
           {openingHours.map((time) => (
             <p key={time.day}>
-              {time.day}: {time.time}
+              {time.day} : {time.time}
             </p>
           ))}
         </div>
 
         <div>
           <h3>Socials</h3>
+
           <div className="flex-center gap-5">
             {socials.map((social) => (
               <a
